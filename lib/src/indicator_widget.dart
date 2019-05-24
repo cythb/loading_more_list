@@ -47,7 +47,7 @@ class IndicatorWidget extends StatelessWidget {
               width: 15.0,
               child: getIndicator(context),
             ),
-            Text(text ?? "loading...")
+            Text(text ?? "加载中...")
           ],
         );
         widget = _setbackground(false, widget, 35.0);
@@ -63,7 +63,7 @@ class IndicatorWidget extends StatelessWidget {
               width: 30.0,
               child: getIndicator(context),
             ),
-            Text(text ?? "loading...")
+            Text(text ?? "加载中...")
           ],
         );
         widget = _setbackground(true, widget, double.infinity);
@@ -83,7 +83,7 @@ class IndicatorWidget extends StatelessWidget {
         break;
       case IndicatorStatus.Error:
         widget = Text(
-          text ?? "load failed,try again.",
+          text ?? "加载失败，请重试",
         );
         widget = _setbackground(false, widget, 35.0);
         if (tryAgain != null) {
@@ -97,7 +97,7 @@ class IndicatorWidget extends StatelessWidget {
         break;
       case IndicatorStatus.FullScreenError:
         widget = Text(
-          text ?? "load failed,try again.",
+          text ?? "加载失败，请重试",
         );
         widget = _setbackground(true, widget, double.infinity);
         if (tryAgain != null) {
@@ -123,12 +123,12 @@ class IndicatorWidget extends StatelessWidget {
         }
         break;
       case IndicatorStatus.NoMoreLoad:
-        widget = Text(text ?? "No more items.");
+        widget = Text(text ?? "没有更多了");
         widget = _setbackground(false, widget, 35.0);
         break;
       case IndicatorStatus.Empty:
         widget = EmptyWidget(
-          text ?? "nothing here",
+          text ?? "什么都没有",
           emptyWidget: emptyWidget,
         );
         widget = _setbackground(true, widget, double.infinity);
